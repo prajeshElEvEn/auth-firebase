@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { auth } from './assets/config';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { auth, provider } from './assets/config';
 
 function App() {
   const [regUser, setRegUser] = useState('')
@@ -10,6 +10,16 @@ function App() {
   const [logUser, setLogUser] = useState('')
   const [logPass, setLogPass] = useState('')
   const [user, setUser] = useState({})
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser)
@@ -106,6 +116,16 @@ function App() {
           }}
         >
           Logout
+        </button>
+      </div>
+      <div>
+        <button
+          className='google'
+          onClick={(e) => {
+            signInWithGoogle()
+          }}
+        >
+          Sign in with Google
         </button>
       </div>
     </div>

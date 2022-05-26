@@ -1,6 +1,6 @@
 # Firebase Auth
 
-This repo demonstrates working `createUserWithEmailAndPassword`, `onAuthStateChanged`, `signInWithEmailAndPassword`, `signOut` functions of firebase/auth.
+This repo demonstrates working `createUserWithEmailAndPassword`, `onAuthStateChanged`, `signInWithEmailAndPassword`, `signOut`, `signInWithGoogle` functions of firebase/auth.
 
 ## Author
 
